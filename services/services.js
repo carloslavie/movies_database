@@ -28,3 +28,19 @@ export const getPopularTv = async () => {
     console.log('error');
   }
 };
+export const getFamilyMovies = async () => {
+  try {
+    const response = await axios.get(`${apiURL}/discover/movie?api_key=${apiKey}&with_genres=10751&language=en-US&page=1`);
+    return response.data.results;
+  } catch (error) {
+    console.log('error');
+  }
+};
+export const getDocumentaryMovies = async () => {
+  try {
+    const response = await axios.get(`${apiURL}/discover/movie?api_key=${apiKey}&with_genres=99&language=en-US&page=1`);
+    return response.data.results;
+  } catch (error) {
+    console.log('error');
+  }
+};
