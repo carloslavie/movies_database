@@ -17,7 +17,7 @@ import {
 import {SliderBox} from 'react-native-image-slider-box';
 import List from '../components/List';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const dimentions = Dimensions.get('screen');
   const [movieImages, setMovieImages] = useState();
   const [movies, setMovies] = useState();
@@ -79,22 +79,22 @@ const Home = () => {
           )}
           {movies && (
             <View style={styles.carousel}>
-              <List title="Popular movies" movies={movies} />
+              <List title="Popular movies" movies={movies} navigation={navigation} />
             </View>
           )}
           {tv && (
             <View style={styles.carousel}>
-              <List title="Popular Tv" movies={tv} />
+              <List title="Popular Tv" movies={tv} navigation={navigation}/>
             </View>
           )}
           {familyMovies && (
             <View style={styles.carousel}>
-              <List title="Family Movies" movies={familyMovies} />
+              <List title="Family Movies" movies={familyMovies} navigation={navigation}/>
             </View>
           )}
           {documentaryMovies && (
             <View style={styles.carousel}>
-              <List title="Documentary Movies" movies={documentaryMovies} />
+              <List title="Documentary Movies" movies={documentaryMovies} navigation={navigation}/>
             </View>
           )}
         </ScrollView>

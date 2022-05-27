@@ -5,9 +5,9 @@ import {TouchableOpacity, Text, Image, StyleSheet} from 'react-native';
 const noImage = require('../assets/images/noimage.png');
 class Card extends React.PureComponent {
   render() {
-    const {item} = this.props;
+    const {navigation, item} = this.props;
     return (
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Detail', {movie:item.id})}>
         <Image
           style={styles.imageMovie}
           resizeMode="cover"
