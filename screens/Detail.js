@@ -44,7 +44,7 @@ const Detail = ({navigation, route}) => {
               style={styles.imageMovie}
               resizeMode="cover"
               source={
-                detail.poster_path
+                detail?.poster_path
                   ? {
                       uri: `https://image.tmdb.org/t/p/w500${detail.poster_path}`,
                     }
@@ -55,10 +55,10 @@ const Detail = ({navigation, route}) => {
               <View style={styles.playButton}>
                 <PlayButton handlePress={() => showVideo()} />
               </View>
-              <Text style={styles.movieTitle}>{detail.title}</Text>
-              {detail.genres && (
+              <Text style={styles.movieTitle}>{detail?.title}</Text>
+              {detail?.genres && (
                 <View style={styles.genreContainer}>
-                  {detail.genres.map((item, index) => (
+                  {detail?.genres.map((item, index) => (
                     <Text style={styles.genreText} key={index}>
                       {item.name}
                     </Text>
@@ -70,11 +70,11 @@ const Detail = ({navigation, route}) => {
                 disabled={true}
                 fullStarColor={'gold'}
                 starSize={30}
-                rating={detail.vote_average / 2}
+                rating={detail?.vote_average / 2}
               />
-              <Text style={styles.overview}>{detail.overview}</Text>
+              <Text style={styles.overview}>{detail?.overview}</Text>
               <Text style={styles.release}>
-                Release date: {dateFormat(detail.release_date, 'mmmm dS, yyyy')}
+                Release date: {dateFormat(detail?.release_date, 'mmmm dS, yyyy')}
               </Text>
             </View>
           </ScrollView>
