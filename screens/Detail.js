@@ -9,13 +9,12 @@ import {
   Dimensions,
   ActivityIndicator,
   Modal,
-  Pressable,
 } from 'react-native';
 import {getMovie} from '../services/services';
 import StarRating from 'react-native-star-rating';
 import dateFormat from 'dateformat';
 import PlayButton from '../components/PlayButton';
-// import VideoPlayer from 'react-native-video-controls';
+import Video from '../components/Video';
 
 const noImage = require('../assets/images/noimage.png');
 const screenHeight = Dimensions.get('screen').height;
@@ -78,16 +77,12 @@ const Detail = ({navigation, route}) => {
               </Text>
             </View>
           </ScrollView>
-          <Modal antimationType="Slide" visible={modalVisible}>
+          <Modal
+            supportedOrientations={['portarit', 'landscape']}
+            antimationType="Slide"
+            visible={modalVisible}>
             <View style={styles.videoModal}>
-              {/* <Pressable onPress={() => showVideo()}>
-                <Text>Hide Modal</Text>
-              </Pressable> */}
-              {/* <VideoPlayer
-                source={{uri: 'https://vjs.zencdn.net/v/oceans.mp4'}}
-                // navigator={this.props.navigator}
-              /> */}
-              ;
+              <Video showVideo={showVideo}/>
             </View>
           </Modal>
         </>
