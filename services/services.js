@@ -53,3 +53,12 @@ export const getMovie = async (id) => {
     console.log('error');
   }
 };
+
+export const searchMoviesOrTv = async (query, type) => {
+  try {
+    const response = await axios.get(`${apiURL}/search/${type}?api_key=${apiKey}&query=${query}`);
+    return response.data.results;
+  } catch (error) {
+    console.log('error');
+  }
+};
